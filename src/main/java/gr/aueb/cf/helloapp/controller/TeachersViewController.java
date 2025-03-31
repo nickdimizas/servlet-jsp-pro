@@ -21,18 +21,19 @@ public class TeachersViewController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        teachers = List.of(new Teacher(1L, "Αλίκη", "Παπαδοπούλού"),
+        teachers = List.of(new Teacher(1L, "Αλίκη", "Παπαδοπούλου"),
                 new Teacher(2L, "Βασίλης", "Δημητρίου"),
                 new Teacher(3L, "Κώστας", "Ανδρούτσος"),
                 new Teacher(4L, "Δημήτρης", "Αναγνωστόπουλος"),
                 new Teacher(5L, "Ελένη", "Γεωργίου"),
-                new Teacher(6L, "Αθανάσιος", "Ανδρούτσος")
+                new Teacher(6L, "Αθανάσιος", "Aνδρούτσος")
         );
+        //teachers = teacherService.getAllTeachers();
 
         String message = "";
 
         String filterId = request.getParameter("id");
-        Long longFilterId = (filterId != null && !filterId.isEmpty()) ? Long.parseLong(filterId) : null;
+        Long longFilterId = (filterId != null && !filterId.isEmpty())  ? Long.parseLong(filterId) : null;
         String filterFirstname = request.getParameter("firstname");
         String filterLastname = request.getParameter("lastname");
 
@@ -48,8 +49,7 @@ public class TeachersViewController extends HttpServlet {
             if (filteredTeachers.isEmpty()) request.setAttribute("message", "Δεν βρέθηκαν καθηγητές με αυτά τα κριτήρια αναζήτησης");
             else request.setAttribute("teachers", filteredTeachers);
 
-            request.getRequestDispatcher("WEB-INF/jsp/teachers.jsp").forward(request, response);
-
+            request.getRequestDispatcher("/WEB-INF/jsp/teachers.jsp").forward(request, response);
         } catch (Exception e) {
             message = e.getMessage();
             request.setAttribute("message", message);

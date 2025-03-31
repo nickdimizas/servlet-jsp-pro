@@ -71,12 +71,12 @@
 </head>
 <body>
 <div class="outer">
-    <!--<h1>Welcome, ${sessionScope.username}!</h1>
+    <h1>Welcome, ${sessionScope.username}!</h1>
     <p>You are now logged in.</p>
 
     <c:if test="${sessionScope.role eq 'TEACHER'}">
         <button type="button">Insert new Teacher</button>
-    </c:if> -->
+    </c:if>
 
     <!--<% if ("TEACHER".equals((String) session.getAttribute("role"))) { %>
             <button type="button">Insert new Teacher</button>
